@@ -5,11 +5,15 @@ import os
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
-load_dotenv("C:/Users/thoma_dfryokd/PycharmProjects/spotify/.env")
+load_dotenv("PATH")
 SPOTIPY_CLIENT_ID = os.getenv("SPOTIPY_CLIENT_ID")
 SPOTIPY_CLIENT_SECRET= os.getenv("SPOTIPY_CLIENT_SECRET")
 scope = "playlist-modify-private"
-spotify = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID, client_secret=SPOTIPY_CLIENT_SECRET, redirect_uri="https://example.com/", scope=scope))
+spotify = spotipy.Spotify(auth_manager=SpotifyOAuth(
+    client_id=SPOTIPY_CLIENT_ID, 
+    client_secret=SPOTIPY_CLIENT_SECRET, 
+    redirect_uri="https://example.com/", 
+    scope=scope))
 
 user_date = input("Which year do you want to travel to? Type the date in this format YYYY-MM-DD: ")
 
@@ -47,4 +51,3 @@ for song in songs:
 
 playlist_id = make_playlist()
 add_tracks(song_uri)
-
